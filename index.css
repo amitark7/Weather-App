@@ -1,0 +1,101 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    background-color: antiquewhite;
+}
+
+.container {
+    width: 100%;
+}
+
+.container nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 80px;
+    background-color: rgb(58, 58, 48);
+}
+
+.container nav h1 {
+    font-size: 30px;
+    color: #fff;
+}
+
+.cloudLogo i {
+    font-size: 32px;
+    color: #fff;
+}
+
+.container .input-container {
+    display: flex;
+    width: 50%;
+    margin: 20px auto 0px auto;
+}
+
+.input-container input {
+    width: 90%;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border: 2px solid rgb(229, 215, 215);
+    outline: none;
+    border-right: none;
+}
+
+.input-container button {
+    width: 20%;
+    font-size: 20px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border: 2px solid rgb(229, 215, 215);
+    cursor: pointer;
+}
+
+.container .weather-container {
+    width: 20%;
+    margin: auto;
+    background-color: white;
+    padding: 20px 10px;
+    margin-top: 20px;
+    text-align: center;
+    border-radius: 8px;
+    display: none;
+}
+
+.weather-container h3 {
+    font-size: 38px;
+}
+
+.weather-container h1 {
+    font-size: 32px;
+}
+
+.weather-container h1 span {
+    font-size: 60px;
+}
+
+.weather-container h1 sup {
+    font-size: 36px;
+}
+
+.weather-container .image-container {
+    width: 100%;
+}
+
+.image-container img {
+    height: 120px;
+    width: 120px;
+}
+
+.weather-container .description {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.weather-container .location {
+    font-size: 20px;
+}
