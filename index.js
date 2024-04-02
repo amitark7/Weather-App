@@ -1,5 +1,3 @@
-console.log("Hey Amit");
-
 const fetchData = async (location) => {
   let data = await fetch(
     `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=${5}&appid=${`82005d27a116c2880c8f0fcb866998a0`}`
