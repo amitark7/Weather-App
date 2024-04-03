@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: antiquewhite;
+    background: url('./assets/1321760.jpeg');
 }
 
 .container {
@@ -16,7 +16,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 10px 80px;
-    background-color: rgb(58, 58, 48);
+    background-color: #111;
 }
 
 .container nav h1 {
@@ -51,8 +51,10 @@ body {
     font-size: 20px;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
-    border: 2px solid rgb(229, 215, 215);
+    color: #fff;
     cursor: pointer;
+    border: none;
+    background-color: rgb(79, 109, 239);
 }
 
 .container .weather-container {
@@ -78,12 +80,10 @@ body {
     font-size: 60px;
 }
 
-.weather-container h1 sup {
-    font-size: 36px;
-}
-
 .weather-container .image-container {
     width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .image-container img {
@@ -98,4 +98,316 @@ body {
 
 .weather-container .location {
     font-size: 20px;
+}
+
+.weather-container .bottom-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 40px;
+    margin-top: 16px;
+}
+
+.bottom-container .humidity,
+.bottom-container .wind {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.bottom-container .humidity i,
+.bottom-container .wind i {
+    font-size: 30px;
+}
+
+.bottom-row {
+    text-align: left;
+}
+
+@media only screen and (min-width:320px) {
+    .container nav {
+        padding: 10px 20px;
+    }
+
+    .container nav h1 {
+        font-size: 7vw;
+    }
+
+    .cloudLogo i {
+        font-size: 7vw;
+    }
+
+    .container .input-container {
+        width: 85%;
+    }
+
+    .input-container input {
+        font-size: 6vw;
+    }
+
+    .input-container button {
+        width: 30%;
+        font-size: 5vw;
+        padding: 4px 4px;
+    }
+
+    .container .weather-container {
+        width: 80%;
+    }
+
+    .weather-container h3 {
+        font-size: 9vw;
+    }
+
+    .weather-container h1 {
+        font-size: 7vw;
+    }
+
+    .weather-container h1 span {
+        font-size: 12vw;
+    }
+
+    .weather-container .description {
+        font-size: 10vw;
+    }
+
+    .weather-container .location {
+        font-size: 6vw;
+    }
+
+    .weather-container .bottom-container {
+        padding: 0px 20px;
+    }
+
+    .bottom-container .humidity i,
+    .bottom-container .wind i {
+        font-size: 8vw;
+    }
+
+    .bottom-row p {
+        font-size: 4vw;
+    }
+}
+
+@media only screen and (min-width:768px) {
+    .container nav {
+        padding: 10px 20px;
+    }
+
+    .container nav h1 {
+        font-size: 3vw;
+    }
+
+    .cloudLogo i {
+        font-size: 3vw;
+    }
+
+    .container .input-container {
+        width: 60%;
+    }
+
+    .input-container input {
+        font-size: 3vw;
+        padding: 8px 20px;
+    }
+
+    .input-container button {
+        width: 25%;
+        font-size: 3vw;
+        padding: 4px 4px;
+    }
+
+    .container .weather-container {
+        width: 40%;
+    }
+
+    .weather-container h3 {
+        font-size: 5vw;
+    }
+
+    .weather-container h1 {
+        font-size: 3.3vw;
+    }
+
+    .weather-container h1 span {
+        font-size: 6vw;
+    }
+
+    .weather-container .description {
+        font-size: 4vw;
+    }
+
+    .weather-container .location {
+        font-size: 3vw;
+    }
+
+    .weather-container .bottom-container {
+        padding: 0px 40px;
+    }
+
+    .bottom-container .humidity i,
+    .bottom-container .wind i {
+        font-size: 4vw;
+    }
+
+    .bottom-row p {
+        font-size: 2vw;
+    }
+}
+
+@media only screen and (min-width:1024px) {
+    .container nav {
+        padding: 10px 20px;
+    }
+
+    .container nav h1 {
+        font-size: 3vw;
+    }
+
+    .cloudLogo i {
+        font-size: 3vw;
+    }
+
+    .container .input-container {
+        width: 50%;
+    }
+
+    .input-container input {
+        font-size: 1.9vw;
+        padding: 8px 20px;
+    }
+
+    .input-container button {
+        width: 25%;
+        font-size: 1.9vw;
+        padding: 4px 4px;
+    }
+
+    .container .weather-container {
+        width: 30%;
+    }
+
+    .weather-container h3 {
+        font-size: 3.7vw;
+    }
+
+    .weather-container h1 {
+        font-size: 2.3vw;
+    }
+
+    .weather-container h1 span {
+        font-size: 4vw;
+    }
+
+    .weather-container .description {
+        font-size: 3vw;
+    }
+
+    .weather-container .location {
+        font-size: 2.3vw;
+    }
+
+    .weather-container .bottom-container {
+        padding: 0px 40px;
+    }
+
+    .bottom-container .humidity i,
+    .bottom-container .wind i {
+        font-size: 3vw;
+    }
+
+    .bottom-row p {
+        font-size: 1.6vw;
+    }
+}
+
+@media only screen and (min-width:1440px) {
+    .container nav {
+        padding: 10px 40px;
+    }
+
+    .container nav h1 {
+        font-size: 2.4vw;
+    }
+
+    .cloudLogo i {
+        font-size: 2.4vw;
+    }
+
+    .container .input-container {
+        width: 40%;
+    }
+
+    .input-container input {
+        font-size: 1.3vw;
+        padding: 10px 20px;
+    }
+
+    .input-container button {
+        width: 25%;
+        font-size: 1.3vw;
+        padding: 4px 4px;
+    }
+
+    .container .weather-container {
+        width: 25%;
+    }
+
+    .weather-container h3 {
+        font-size: 3vw;
+    }
+
+    .weather-container h1 {
+        font-size: 2vw;
+    }
+
+    .weather-container h1 span {
+        font-size: 3vw;
+    }
+
+    .weather-container .description {
+        font-size: 2.5vw;
+    }
+
+    .weather-container .location {
+        font-size: 2vw;
+    }
+
+    .weather-container .bottom-container {
+        padding: 0px 40px;
+    }
+
+    .bottom-container .humidity i,
+    .bottom-container .wind i {
+        font-size: 2.4vw;
+    }
+
+    .bottom-row p {
+        font-size: 1.4vw;
+    }
+}
+
+@media only screen and (min-width:2560px) {
+    .container nav {
+        padding: 10px 80px;
+    }
+
+    .input-container input {
+        font-size: 1.6vw;
+        padding: 16px 20px;
+    }
+
+    .input-container button {
+        width: 25%;
+        font-size: 1.6vw;
+        padding: 4px 4px;
+    }
+
+    .container .weather-container {
+        padding: 50px 10px;
+    }
+
+    .weather-container .bottom-container {
+        margin-top: 25px;
+    }
 }
