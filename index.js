@@ -15,6 +15,10 @@ inputBox.addEventListener("keydown", function (e) {
   }
 });
 
+if (inputBox.length === 0) {
+  searchButton.disabled = true;
+}
+
 //Fetching weather details according to location name
 const fetchData = async (location) => {
   //loader true when fetching start
@@ -75,6 +79,7 @@ const searchClick = async () => {
 const updateDom = (details) => {
   cityName = cityName.length === 0 ? details.name : inputBox.value;
   container.style.display = "block";
+  document.getElementById("NotFound").style.display = "none";
 
   //Update value of temprature
   document.getElementById("temp").innerText = `${(
