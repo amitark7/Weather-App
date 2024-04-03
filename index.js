@@ -36,15 +36,6 @@ const fetchData = async (location) => {
     loader = false;
     isLoader();
     container.style.display = "block";
-    let textNode = `
-          <h3>Weather</h3>
-          <div class="image-container">
-              <img src=${"../assets/404.png"}>
-          </div>
-          <p class="description">Oops city not find</p>
-  `;
-
-    container.innerHTML = textNode;
   }
 };
 
@@ -58,67 +49,48 @@ const searchClick = async () => {
 };
 
 const updateDom = (details) => {
-  let imagePath = "";
-  let container = document.getElementById("weather-box");
-  container.style.display = "block";
+  cityName = cityName.length === 0 ? details.name : inputBox.value;
+  document.getElementById("weather-box").style.display = "block";
+
+  let weatherImg = document.getElementById("weatherImg");
+  document.getElementById("temp").innerText = `${(
+    details.main.temp - 273.15
+  ).toFixed(0)}`;
+  document.getElementById("description").innerText =
+    details.weather[0].description;
+
+  document.getElementById("location").innerText = `${
+    cityName[0].toLocaleUpperCase() + cityName.substring(1)
+  },${details.sys.country}`;
+
+  document.getElementById("humidity").innerText = `${details.main.humidity}%`;
+  document.getElementById("wind").innerText = `${details.wind.speed}km/hr`;
+
   switch (details.weather[0].main) {
     case "Clouds":
-      imagePath = "/assets/cloud.png";
+      weatherImg.src = "/assets/cloud.png";
       document.body.style.backgroundImage = "url('/assets/cloudBg.png')";
       break;
     case "Clear":
-      imagePath = "/assets/clear.png";
+      weatherImg.src = "/assets/clear.png";
       document.body.style.backgroundImage = "url('/assets/clearBG.webp')";
       break;
     case "Rain":
-      imagePath = "/assets/rain.png";
+      weatherImg.src = "/assets/rain.png";
       document.body.style.backgroundImage = "url('/assets/rainBg.jpg')";
       break;
     case "Mist":
-      imagePath = "/assets/mist.png";
+      weatherImg.src = "/assets/mist.png";
       document.body.style.backgroundImage = "url('/assets/cloudBg.png')";
       break;
     case "Snow":
-      imagePath = "/assets/snow.png";
+      weatherImg.src = "/assets/snow.png";
       document.body.style.backgroundImage = "url('/assets/snowBg.jpg')";
     case "Haze":
-      imagePath = "/assets/haze.png";
+      weatherImg.src = "/assets/haze.png";
       document.body.style.backgroundImage = "url('/assets/clearBG.webp')";
       break;
   }
-  cityName = cityName.length === 0 ? details.name : inputBox.value;
-  let textNode = `
-              <h3>Weather</h3>
-              <div class="image-container">
-                  <img src=${imagePath}>
-              </div>
-              <h1>
-                  <span>${(details.main.temp - 273.15).toFixed(0)}
-                  </span>°C
-              </h1>
-              <p class="description">${details.weather[0].description}</p>
-              <p class="location">${
-                cityName[0].toLocaleUpperCase() + cityName.substring(1)
-              },${details.sys.country}</p>
-              <div class="bottom-container">
-              <div class="humidity">
-                <i class="fa-solid fa-droplet"></i>
-                <div class="bottom-row">
-                    <p>${details.main.humidity}%</p>
-                    <p>Humidity</p>
-                 </div>
-              </div>
-              <div class="wind">
-              <i class="fa-solid fa-wind"></i>
-                <div class="bottom-row">
-                    <p>${details.wind.speed}km/hr</p>
-                    <p>Wind</p>
-                 </div>
-              </div>
-              </div>
-      `;
-
-  container.innerHTML = textNode;
   inputBox.value = "";
 };
 

@@ -122,12 +122,12 @@ body {
     width: 120px;
 }
 
-.weather-container .description {
+.weather-container #description {
     font-size: 30px;
     margin-bottom: 10px;
 }
 
-.weather-container .location {
+.weather-container #location {
     font-size: 20px;
 }
 
@@ -198,11 +198,11 @@ body {
         font-size: 12vw;
     }
 
-    .weather-container .description {
+    .weather-container #description {
         font-size: 10vw;
     }
 
-    .weather-container .location {
+    .weather-container #location {
         font-size: 6vw;
     }
 
@@ -264,11 +264,11 @@ body {
         font-size: 6vw;
     }
 
-    .weather-container .description {
+    .weather-container #description {
         font-size: 4vw;
     }
 
-    .weather-container .location {
+    .weather-container #location {
         font-size: 3vw;
     }
 
@@ -330,11 +330,11 @@ body {
         font-size: 4vw;
     }
 
-    .weather-container .description {
+    .weather-container #description {
         font-size: 3vw;
     }
 
-    .weather-container .location {
+    .weather-container #location {
         font-size: 2.3vw;
     }
 
@@ -396,11 +396,11 @@ body {
         font-size: 3vw;
     }
 
-    .weather-container .description {
+    .weather-container #description {
         font-size: 2.5vw;
     }
 
-    .weather-container .location {
+    .weather-container #location {
         font-size: 2vw;
     }
 
