@@ -68,7 +68,7 @@ const updateDom = (details) => {
       break;
     case "Clear":
       imagePath = "/assets/clear.png";
-      document.body.style.backgroundImage = "url('/assets/clearBg.webp')";
+      document.body.style.backgroundImage = "url('/assets/clearBG.webp')";
       break;
     case "Rain":
       imagePath = "/assets/rain.png";
@@ -83,7 +83,7 @@ const updateDom = (details) => {
       document.body.style.backgroundImage = "url('/assets/snowBg.jpg')";
     case "Haze":
       imagePath = "/assets/haze.png";
-      document.body.style.backgroundImage = "url('/assets/clearBg.webp')";
+      document.body.style.backgroundImage = "url('/assets/clearBG.webp')";
       break;
   }
   let textNode = `
