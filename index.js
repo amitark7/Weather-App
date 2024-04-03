@@ -29,23 +29,23 @@ const fetchData = async (city) => {
   const data = await fetch(
     `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${5}&appid=${`82005d27a116c2880c8f0fcb866998a0`}`
   );
-  const getDetails = await data.json();
+  const jsonData = await data.json();
 
   //If City name find then proceed further otherwise we jump on else block and update on webpage location not found
-  if (getDetails.length > 0) {
-    const latitute = getDetails[0].lat;
-    const longitude = getDetails[0].lon;
+  if (jsonData.length > 0) {
+    const latitute = jsonData[0].lat;
+    const longitude = jsonData[0].lon;
     const details =
       await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${latitute}&lon=${longitude}&appid=${`82005d27a116c2880c8f0fcb866998a0`}
       `);
-    const value = await details.json();
-    if (value) {
+    const weatherValue = await details.json();
+    if (weatherValue) {
       //When fetching complete then false loader
       loader = false;
       isLoader();
 
       //Pass weather details in UpdateDom Function
-      updateDom(value);
+      updateDom(weatherValue);
     }
   } else {
     //also location not find then loader false and update on webpages
