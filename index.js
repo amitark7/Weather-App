@@ -1,5 +1,9 @@
 let container = document.getElementById("weather-box");
 let inputBox = document.getElementById("input-box");
+let Loader = document.getElementById("loader");
+let searchButton = document.getElementById("search-button");
+let isLocation = document.getElementById("location-available");
+let loader = false;
 
 inputBox.addEventListener("keydown", function (e) {
   if (e.code === "Enter") {
@@ -8,6 +12,8 @@ inputBox.addEventListener("keydown", function (e) {
 });
 
 const fetchData = async (location) => {
+  loader = true;
+  isLoader();
   let data = await fetch(
     `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=${5}&appid=${`82005d27a116c2880c8f0fcb866998a0`}`
   );
@@ -20,9 +26,13 @@ const fetchData = async (location) => {
       `);
     let value = await details.json();
     if (value) {
+      loader = false;
+      isLoader();
       updateDom(value);
     }
   } else {
+    loader = false;
+    isLoader();
     container.style.display = "block";
     let textNode = `
           <h3>Weather</h3>
@@ -37,6 +47,7 @@ const fetchData = async (location) => {
 };
 
 const searchClick = async () => {
+  isLocation.style.display = "none";
   if (inputBox.value === "") {
     return;
   }
@@ -108,24 +119,32 @@ if ("geolocation" in navigator) {
   alert("Geolocation is not available in this browser.");
 }
 
-function geolocationError(error) {
-  alert("Unable to find Location Enter Manually");
+function geolocationError() {
+  isLocation.style.display = "block";
+  isLocation.innerText = "*Current location not available*";
 }
 
 async function geolocationSuccess(position) {
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
 
-  // Fetch city and country using reverse geocoding (optional)
+  // Fetch city name according to latitude and longitude
   try {
     const response = await fetch(
       `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
     );
     const data = await response.json();
-    console.log(data);
     const city = data.address.city;
     fetchData(city);
   } catch (error) {
     console.log("Error in Fetching...");
+  }
+}
+
+function isLoader() {
+  if (loader) {
+    searchButton.innerHTML = `<div id="loader"></div>`;
+  } else {
+    searchButton.innerText = "Search";
   }
 }
