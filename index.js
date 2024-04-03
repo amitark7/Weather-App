@@ -4,6 +4,7 @@ let Loader = document.getElementById("loader");
 let searchButton = document.getElementById("search-button");
 let isLocation = document.getElementById("location-available");
 let loader = false;
+let body = document.getElementsByTagName("body");
 
 inputBox.addEventListener("keydown", function (e) {
   if (e.code === "Enter") {
@@ -53,6 +54,7 @@ const searchClick = async () => {
   }
   const location = inputBox.value;
   fetchData(location);
+  inputBox.value = "";
 };
 
 const updateDom = (details) => {
@@ -62,20 +64,26 @@ const updateDom = (details) => {
   switch (details.weather[0].main) {
     case "Clouds":
       imagePath = "/assets/cloud.png";
+      document.body.style.backgroundImage = "url('/assets/cloudBg.png')";
       break;
     case "Clear":
       imagePath = "/assets/clear.png";
+      document.body.style.backgroundImage = "url('/assets/clearBg.webp')";
       break;
     case "Rain":
       imagePath = "/assets/rain.png";
+      document.body.style.backgroundImage = "url('/assets/rainBg.jpg')";
       break;
     case "Mist":
       imagePath = "/assets/mist.png";
+      document.body.style.backgroundImage = "url('/assets/cloudBg.png')";
       break;
     case "Snow":
       imagePath = "/assets/snow.png";
+      document.body.style.backgroundImage = "url('/assets/snowBg.jpg')";
     case "Haze":
       imagePath = "/assets/haze.png";
+      document.body.style.backgroundImage = "url('/assets/clearBg.webp')";
       break;
   }
   let textNode = `
@@ -116,7 +124,7 @@ if ("geolocation" in navigator) {
     geolocationError
   );
 } else {
-  alert("Geolocation is not available in this browser.");
+  alert("Geolocation is not Available.");
 }
 
 function geolocationError() {

@@ -5,7 +5,10 @@
 }
 
 body {
-    background: url('./assets/1321760.jpeg');
+    background: #c4b7c5;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
 .container {
