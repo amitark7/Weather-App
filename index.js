@@ -5,6 +5,7 @@ let searchButton = document.getElementById("search-button");
 let isLocation = document.getElementById("location-available");
 let loader = false;
 let body = document.getElementsByTagName("body");
+let cityName = "";
 
 inputBox.addEventListener("keydown", function (e) {
   if (e.code === "Enter") {
@@ -54,7 +55,6 @@ const searchClick = async () => {
   }
   const location = inputBox.value;
   fetchData(location);
-  inputBox.value = "";
 };
 
 const updateDom = (details) => {
@@ -86,6 +86,7 @@ const updateDom = (details) => {
       document.body.style.backgroundImage = "url('/assets/clearBG.webp')";
       break;
   }
+  cityName = cityName.length === 0 ? details.name : inputBox.value;
   let textNode = `
               <h3>Weather</h3>
               <div class="image-container">
@@ -96,7 +97,9 @@ const updateDom = (details) => {
                   </span>°C
               </h1>
               <p class="description">${details.weather[0].description}</p>
-              <p class="location">${details.name},${details.sys.country}</p>
+              <p class="location">${
+                cityName[0].toLocaleUpperCase() + cityName.substring(1)
+              },${details.sys.country}</p>
               <div class="bottom-container">
               <div class="humidity">
                 <i class="fa-solid fa-droplet"></i>
@@ -116,6 +119,7 @@ const updateDom = (details) => {
       `;
 
   container.innerHTML = textNode;
+  inputBox.value = "";
 };
 
 if ("geolocation" in navigator) {
