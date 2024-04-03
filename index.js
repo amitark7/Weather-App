@@ -20,21 +20,21 @@ if (inputBox.length === 0) {
 }
 
 //Fetching weather details according to location name
-const fetchData = async (location) => {
+const fetchData = async (city) => {
   //loader true when fetching start
   loader = true;
   isLoader();
 
   //Find latitude and longitude base on the city name
   const data = await fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=${5}&appid=${`82005d27a116c2880c8f0fcb866998a0`}`
+    `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${5}&appid=${`82005d27a116c2880c8f0fcb866998a0`}`
   );
-  const json = await data.json();
+  const getDetails = await data.json();
 
   //If City name find then proceed further otherwise we jump on else block and update on webpage location not found
-  if (json.length > 0) {
-    const latitute = json[0].lat;
-    const longitude = json[0].lon;
+  if (getDetails.length > 0) {
+    const latitute = getDetails[0].lat;
+    const longitude = getDetails[0].lon;
     const details =
       await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${latitute}&lon=${longitude}&appid=${`82005d27a116c2880c8f0fcb866998a0`}
       `);
@@ -69,10 +69,10 @@ const searchClick = async () => {
   }
 
   //Get location from input box
-  const location = inputBox.value;
+  const city = inputBox.value;
 
   //call fetch function base location
-  fetchData(location);
+  fetchData(city);
 };
 
 //Update element on weatherdetails
